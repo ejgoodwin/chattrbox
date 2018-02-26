@@ -3,8 +3,11 @@
 var http = require('http');
 // Imoport Node's file system module
 var fs = require('fs');
+
 // Import extract.js to use extractFilePath function
 var extract = require('./extract');
+
+var wss = require('./websockets-server.js');
 
 var handleError = function(err, res) {
 	res.writeHead(404);
@@ -25,6 +28,7 @@ var server = http.createServer(function (req, res) {
 			handleError(err, res);
 			return;
 		} else {
+			res.setHeader('Content-Type', 'text/html');
 			res.end(data);
 		}
 	});
