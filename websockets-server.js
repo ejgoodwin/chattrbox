@@ -11,10 +11,9 @@ console.log('websockets server started');
 var messages = [];
 
 // Callback for any connection events for WebSockets Server
-// When client makes connection to server, that connection is accessable through'socket' object - function's argument
+// When client makes connection to server, that connection is accessable through 'socket' object - function's argument
 ws.on('connection', function(socket) {
 	console.log('client connection established');
-
 	// Allow new users to see previous messages
 	messages.forEach(function(msg) {
 		socket.send(msg);
@@ -26,7 +25,13 @@ ws.on('connection', function(socket) {
 		// Add messages to array
 		messages.push(data);
 		ws.clients.forEach(function(clientSocket) {
-			clientSocket.send(data);
+			let i = 0;
+			while( i < messages.length) {
+				clientSocket.send(data);
+				console.log('array equals ' + messages.length);
+				i++;
+			}
+			console.log(messages);
 		});
 	});
 });
