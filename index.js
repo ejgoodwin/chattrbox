@@ -28,7 +28,7 @@ var server = http.createServer(function (req, res) {
 			handleError(err, res);
 			return;
 		} else {
-			res.setHeader('Content-Type', 'text/html');
+			// res.setHeader('Content-Type', 'text/html');
 			res.end(data);
 		}
 	});
