@@ -1,3 +1,3 @@
 # chattrbox
 
-Project from Front-End Web Development: The Big Nerd Ranch Guide
+Project from the book Front-End Web Development: The Big Nerd Ranch Guide
